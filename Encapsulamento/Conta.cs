@@ -5,12 +5,18 @@
 
     public void SetSaldo(double s)
     {
-        if (s <= 0)
+        try
         {
-            Console.WriteLine("Ta errado meu patrão");
+            if (s <= 0)
+            {
+                Console.WriteLine("Ta errado meu patrão");
+            }
+            else { _Saldo = s; }
         }
-        else { _Saldo = s; }
-
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);// executa as exeções
+        }
     }
 
     public double GetSaldo() { 
